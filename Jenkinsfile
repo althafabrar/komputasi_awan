@@ -14,17 +14,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                echo "Building Docker image..."
-                script {
-                    // Pastikan Dockerfile ada di dalam repositori
-                    sh '''
-                    # Build Docker image jika belum ada
-                    docker build -t ${DOCKER_IMAGE} .
-                    '''
-                }
-            }
         }
 
         stage('Run Docker Container') {
