@@ -35,16 +35,12 @@ pipeline {
         }
     }
     
-        stage('Run Command in Background') {
-            steps {
-                // Menggunakan perintah 'start' di Windows untuk menjalankan perintah di latar belakang
-                bat 'start <command>'
-
-                // Atau menggunakan PowerShell untuk menjalankan perintah di latar belakang
-                // bat 'powershell Start-Process "<command>"'
-            }
-        }
+    stage('Run Command in Background') {
+    steps {
+        bat 'powershell Start-Process "<command>"'
     }
+}
+
 
     post {
         success {
