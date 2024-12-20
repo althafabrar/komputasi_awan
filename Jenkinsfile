@@ -24,7 +24,7 @@ pipeline {
                     docker rm ${DOCKER_CONTAINER} || true
 
                     # Jalankan container dari image yang sudah ada
-                    docker run -d --name ${DOCKER_CONTAINER} -p 2022:80 isa_rental_mobil_website-master || {
+                    docker run -d --name nginxisa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master || {
                         echo "Docker run failed! Showing logs:"
                         docker logs ${DOCKER_CONTAINER} || true
                         exit 1
