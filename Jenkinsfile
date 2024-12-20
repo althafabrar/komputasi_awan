@@ -24,7 +24,7 @@ pipeline {
                     docker rm ${DOCKER_CONTAINER} || true
 
                     # Jalankan container dari image yang sudah ada
-                    docker run -d --name ${DOCKER_CONTAINER} -p 8000:8000 ${DOCKER_IMAGE} || {
+                    docker run -d --name ${DOCKER_CONTAINER} -p 2022:80 ${DOCKER_IMAGE} || {
                         echo "Docker run failed! Showing logs:"
                         docker logs ${DOCKER_CONTAINER} || true
                         exit 1
