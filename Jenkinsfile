@@ -20,8 +20,8 @@ pipeline {
                 script {
                     sh '''
                     # Stop dan hapus container lama jika ada
-                    docker stop ${DOCKER_CONTAINER} || true
-                    docker rm ${DOCKER_CONTAINER} || true
+                    docker stop isa_rental_mobil_website-master || true
+                    docker rm isa_rental_mobil_website-master || true
 
                     # Jalankan container dari image yang sudah ada
                     docker run -d --name isa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master || {
