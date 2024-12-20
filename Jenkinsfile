@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+         stage('Run Docker Container') {
             steps {
                 echo "Running Docker container..."
                 script {
@@ -33,8 +33,9 @@ pipeline {
                 }
             }
         }
+    }
 
-       
+
 
     post {
         success {
