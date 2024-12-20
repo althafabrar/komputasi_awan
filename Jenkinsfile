@@ -14,23 +14,27 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-    steps {
-        echo "Running Docker container..."
-        script {
-            sh '''
-            docker stop ${DOCKER_CONTAINER} || true
-            docker rm ${DOCKER_CONTAINER} || true
-            docker run -d --name ${DOCKER_CONTAINER} -p 2022:80 ${DOCKER_IMAGE} || {
-                echo "Docker run failed! Showing logs:"
-                docker logs ${DOCKER_CONTAINER} || true
-                docker ps -a || true
-                exit 1
+         stage('Run Docker Container') {
+            steps {
+                echo "Running Docker container..."
+                script {
+                    sh '''
+                    # Stop dan hapus container lama jika ada
+                    docker stop ${DOCKER_CONTAINER} || true
+                    docker rm ${DOCKER_CONTAINER} || true
+
+                    # Jalankan container dari image yang sudah ada
+                    docker run -d --name ${DOCKER_CONTAINER} -p 8000:8000 ${DOCKER_IMAGE} || {
+                        echo "Docker run failed! Showing logs:"
+                        docker logs ${DOCKER_CONTAINER} || true
+                        exit 1
+                    }
+                    '''
+                }
             }
-            '''
         }
     }
-}
+
 
 
     post {
