@@ -37,7 +37,7 @@ pipeline {
     
     stage('Run Command in Background') {
     steps {
-        bat 'powershell Start-Process "<command>"'
+        bat 'Start-Process'
     }
 }
 
