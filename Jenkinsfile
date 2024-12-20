@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-         stage('Run Docker Container') {
+        stage('Run Docker Container') {
             steps {
                 echo "Running Docker container..."
                 script {
@@ -33,9 +33,15 @@ pipeline {
                 }
             }
         }
+
+        // Stage baru untuk menjalankan perintah di background
+        stage('Run Command in Background') {
+            steps {
+                echo "Running command in background..."
+                bat 'start myscript.bat'  // Gantilah <command> dengan perintah yang ingin dijalankan
+            }
+        }
     }
-
-
 
     post {
         success {
