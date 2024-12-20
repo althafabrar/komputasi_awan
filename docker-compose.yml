@@ -2,8 +2,6 @@ version: "3"  # Anda dapat menghapus baris ini jika ingin.
 
 services:
   app:
-  ports:
-    - "9000:9000" 
     build:
       context: .  # Pastikan ada Dockerfile di direktori ini.
     image: isa_rental_mobil_website-master
