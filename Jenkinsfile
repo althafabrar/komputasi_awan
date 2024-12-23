@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+      stages {
+        stage('Run Command') {
+            steps {
+                bat 'start /B java -jar myapp.jar'
+            }
+        }
+    }
+    
     environment {
         DOCKER_IMAGE = "isa_rental_mobil_website-master"
         DOCKER_CONTAINER = "isa_rental_mobil_website-master"
