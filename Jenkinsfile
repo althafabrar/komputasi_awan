@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     environment {
         DOCKER_IMAGE = "isa_rental_mobil_website-master"
         DOCKER_CONTAINER = "isa_rental_mobil_website-master"
@@ -14,19 +14,19 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+         stage('Run Docker Container') {
             steps {
                 echo "Running Docker container..."
                 script {
                     sh '''
                     # Stop dan hapus container lama jika ada
-                    docker stop ${DOCKER_CONTAINER} || true
-                    docker rm ${DOCKER_CONTAINER} || true
+                    docker stop nginxisa_rental_mobil_website-master || true
+                    docker rm nginxisa_rental_mobil_website-master || true
 
                     # Jalankan container dari image yang sudah ada
-                    docker run -d --name ${DOCKER_CONTAINER} -p 2020:80 isa_rental_mobil_website-master || {
+                    nohup docker run -d --name nginxisa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master > nohup.out || {
                         echo "Docker run failed! Showing logs:"
-                        docker logs ${DOCKER_CONTAINER} || true
+                        docker logs nginxisa_rental_mobil_website-master || true
                         exit 1
                     }
                     '''
@@ -34,12 +34,7 @@ pipeline {
             }
         }
     }
-    
-    stage('Run Command in Background') {
-    steps {
-        bat 'Start-Process'
-    }
-}
+
 
 
     post {
