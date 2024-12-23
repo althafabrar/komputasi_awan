@@ -23,11 +23,11 @@ pipeline {
                     // docker stop nginxisa_rental_mobil_website-master || true
                     // docker rm nginxisa_rental_mobil_website-master || true
 
-                    # Jalankan container dari image yang sudah ada
-                    nohup docker run -d --name nginxisa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master > nohup.out || {
-                        echo "Docker run failed! Showing logs:"
-                        docker logs nginxisa_rental_mobil_website-master || true
-                        exit 1
+                    // # Jalankan container dari image yang sudah ada
+                    // nohup docker run -d --name nginxisa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master > nohup.out || {
+                    //     echo "Docker run failed! Showing logs:"
+                    //     docker logs nginxisa_rental_mobil_website-master || true
+                    //     exit 1
                     }
                     '''
                 }
