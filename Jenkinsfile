@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JDK17' // Pastikan JDK-17 sudah terkonfigurasi di Global Tool Configuration
-    }
-
     stages {
         stage('Checkout SCM') {
             steps {
