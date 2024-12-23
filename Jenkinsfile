@@ -19,9 +19,9 @@ pipeline {
                 echo "Running Docker container..."
                 script {
                     sh '''
-                    # Stop dan hapus container lama jika ada
-                    docker stop nginxisa_rental_mobil_website-master || true
-                    docker rm nginxisa_rental_mobil_website-master || true
+                    // # Stop dan hapus container lama jika ada
+                    // docker stop nginxisa_rental_mobil_website-master || true
+                    // docker rm nginxisa_rental_mobil_website-master || true
 
                     # Jalankan container dari image yang sudah ada
                     nohup docker run -d --name nginxisa_rental_mobil_website-master -p 2022:80 isa_rental_mobil_website-master > nohup.out || {
