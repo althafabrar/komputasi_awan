@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .  # Pastikan ada Dockerfile di direktori ini.
-    image: isa_rental_mobil_website-master
+    image: ${DOCKERHUB_CREDENTIALS_USR}/isa_rental_mobil_website-master
     container_name: isa_rental_mobil_website-master
     restart: unless-stopped
     tty: true
